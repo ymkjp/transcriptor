@@ -26,7 +26,7 @@ function main() {
 
   for (var i in threads) {
     var thread = threads[i];
-    var messages = thread.getMessages().reverse();
+    var messages = thread.getMessages();
     var text = "";
     ensureEmailQuota();
     // TODO: Support dead letter queue and retry feature
@@ -56,6 +56,7 @@ function transcribe(message) {
   for (var i in attachments) {
     transcripts.push(recognize(attachments[i]));
   }
+  transcripts.push(message.getPlainBody());
   return transcripts;
 }
 
@@ -76,9 +77,12 @@ function recognize(blob) {
     content = fetch(audio);
     cache.put(cacheKey, content, 6 * 60 * 60);
   }
-  var parsed = JSON.parse(content);
-  Logger.log(content);
-  return parsed['results'][0]['alternatives'][0]['transcript'];
+  var res = JSON.parse(content);
+  Logger.log(res);
+  if (res.hasOwnProperty('results') && res['results'].length > 0 && res['results'][0]['alternatives'].length > 0) {
+    return res['results'][0]['alternatives'][0]['transcript'];
+  }
+  return '__NO_TRANSCRIPT__';
 }
 
 /**
