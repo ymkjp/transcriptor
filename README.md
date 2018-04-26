@@ -10,7 +10,7 @@
 
 ### Usage
 - Add new GAS from https://script.google.com/home
-- Place `transcriptor.js` as `Code.gs`
+- Place `transcriptor.gs.js` as `Code.gs`
 - Set up values below:
   - `GC_API_KEY`
   - `RECIPIENT_ADDRESS`
