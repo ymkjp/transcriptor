@@ -90,7 +90,6 @@ function recognize(blob) {
 function fetch(audio) {
   var data = {
     "config": {
-      "encoding": "LINEAR16",
       "languageCode": LANG_CODE,
       "enableWordTimeOffsets": false
     },
@@ -103,9 +102,9 @@ function fetch(audio) {
     var response = UrlFetchApp.fetch("https://speech.googleapis.com/v1/speech:recognize?key=" + GC_API_KEY, {
       method: 'POST',
       contentType: 'application/json; charset=utf-8',
-      payload: JSON.stringify(data),
-      muteHttpExceptions: true
+      payload: JSON.stringify(data)
     });
+    Logger.log(response);
     return response.getContentText();
   } catch (e) {
     Logger.log(e.message);
@@ -137,7 +136,7 @@ function send(subject, body) {
     name: APP_NAME,
     replyTo: REPLY_TO_ADDRESS,
     to: RECIPIENT_ADDRESS,
-    subject: subject,
+    subject: ['[' + APP_NAME + ']', subject].join(' '),
     body: body,
   });
 }
