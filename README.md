@@ -1,8 +1,8 @@
 # transcriptor
 
 ### Prerequisite on your Gmail
-- Create labels named "#GAS/transcriptor-enq" and "#GAS/transcriptor-deq"
-- Create a filter which labels "#GAS/transcriptor-enq" to target emails
+- Create labels named `#GAS/transcriptor-enq` and `#GAS/transcriptor-deq`
+- Create a filter which labels `#GAS/transcriptor-enq` to target emails
 
 ### Prerequisite on your Google Cloud console
 - Enable "Cloud Speech API" at https://console.cloud.google.com/apis/library/speech.googleapis.com/
