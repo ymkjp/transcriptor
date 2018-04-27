@@ -1,0 +1,38 @@
+{
+  "name": "transcriptor",
+  "version": "1.0.0",
+  "description": "A GAS to transcribe attached audio files in Gmail",
+  "main": "transcriptor.gs.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ymkjp/transcriptor.git"
+  },
+  "keywords": [
+    "google-apps-script",
+    "speech-recognition",
+    "gmail"
+  ],
+  "author": "@i05",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/ymkjp/transcriptor/issues"
+  },
+  "homepage": "https://github.com/ymkjp/transcriptor#readme",
+  "devDependencies": {
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "globals": [
+      "ScriptApp",
+      "Logger",
+      "Utilities",
+      "CacheService",
+      "UrlFetchApp",
+      "MailApp",
+      "GmailApp"
+    ]
+  }
+}
