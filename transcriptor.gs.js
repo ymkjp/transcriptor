@@ -28,20 +28,20 @@ function main () {
   for (var i in threads) {
     var thread = threads[i]
     var messages = thread.getMessages()
-    var text = ''
+    var transcripts = []
     ensureEmailQuota()
     // TODO: Support dead letter queue and retry feature
     thread.removeLabel(targetLabel)
     for (var j in messages) {
-      text += transcribe(messages[j]).join('\n')
+      transcripts.push(transcribe(messages[j]).join('\n\n'))
     }
     var result = [
-      text,
+      transcripts.join('\n\n---\n\n'),
       thread.getPermalink(),
       ScriptApp.getService().getUrl()
     ]
     Logger.log(result)
-    send(thread.getId(), result.join('\n'))
+    send(thread.getId(), result.join('\n\n'))
     thread.addLabel(notifiedLabel)
   }
   Logger.log('Done.')
@@ -118,7 +118,6 @@ function fetch (audio) {
 }
 
 /**
- *
  * @param {String} target
  */
 function generateKey (target) {
@@ -136,6 +135,10 @@ function ensureEmailQuota () {
   }
 }
 
+/**
+ * @param {String} subject
+ * @param {String} body
+ */
 function send (subject, body) {
   MailApp.sendEmail({
     name: APP_NAME,

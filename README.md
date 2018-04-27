@@ -1,5 +1,6 @@
 # transcriptor
 
+[![Build Status](https://travis-ci.org/ymkjp/transcriptor.svg?branch=master)](https://travis-ci.org/ymkjp/transcriptor)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ### Prerequisite on your Gmail

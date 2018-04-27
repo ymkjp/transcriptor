@@ -4,7 +4,7 @@
   "description": "A GAS to transcribe attached audio files in Gmail",
   "main": "transcriptor.gs.js",
   "scripts": {
-    "test": "eclint check $(git ls-files) && standard",
+    "test": "standard",
     "start": "standard --fix"
   },
   "repository": {
