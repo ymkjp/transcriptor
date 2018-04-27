@@ -4,7 +4,8 @@
   "description": "A GAS to transcribe attached audio files in Gmail",
   "main": "transcriptor.gs.js",
   "scripts": {
-    "test": "standard"
+    "test": "eclint check $(git ls-files) && standard",
+    "start": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
     "speech-recognition",
     "gmail"
   ],
-  "author": "@i05",
+  "author": "@ymkjp",
   "license": "MIT License",
   "bugs": {
     "url": "https://github.com/ymkjp/transcriptor/issues"
